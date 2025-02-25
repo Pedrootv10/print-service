@@ -1,0 +1,15 @@
+{
+  "name": "print-service-local",
+  "version": "1.0.0",
+  "description": "Serviço de impressão automática para pedidos WooCommerce",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pdf-to-printer": "^4.0.0",
+    "path": "^0.12.7",
+    "fs": "0.0.1-security"
+  }
+}

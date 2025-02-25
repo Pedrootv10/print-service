@@ -2,9 +2,9 @@
   "name": "print-service-vercel",
   "version": "1.0.0",
   "description": "Serviço de notificação de pedidos para impressão automática",
-  "main": "server.js",
+  "main": "vercelserver.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node vercelserver.js"
   },
   "dependencies": {
     "axios": "^0.21.1",

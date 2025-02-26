@@ -1,9 +1,9 @@
 {
   "name": "print-now",
   "version": "1.0.0",
-  "main": "localserver.js",
-  "devDependencies": {},
+  "main": "vercelserver.js",
   "scripts": {
+    "start": "node vercelserver.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,5 +17,10 @@
     "url": "https://github.com/Pedrootv10/print-service/issues"
   },
   "homepage": "https://github.com/Pedrootv10/print-service#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "@woocommerce/woocommerce-rest-api": "^1.0.1"
+  }
 }

@@ -5,6 +5,11 @@ const WooCommerceRestApi = require("@woocommerce/woocommerce-rest-api").default;
 const app = express();
 app.use(express.json());
 
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
+
 // Configurações do WooCommerce
 const api = new WooCommerceRestApi({
   url: 'https://vovolaurapizzaria.online',
@@ -18,12 +23,16 @@ app.post('/webhook', async (req, res) => {
   const order = req.body;
   console.log('Novo pedido recebido:', order);
 
+  // Adicionando logs adicionais para depuração
+  console.log('Detalhes do pedido:', JSON.stringify(order, null, 2));
+
   // Enviar notificação para o servidor local
   try {
-    await axios.post('http://192.168.1.100:3000/webhook', order); // Substitua pelo endereço IP do seu servidor local
+    const response = await axios.post('http://192.168.1.100:3000/webhook', order); // Substitua pelo endereço IP do seu servidor local
+    console.log('Resposta do servidor local:', response.data);
     res.sendStatus(200);
   } catch (error) {
-    console.error('Erro ao enviar notificação para o servidor local:', error);
+    console.error('Erro ao enviar notificação para o servidor local:', error.message);
     res.sendStatus(500);
   }
 });
